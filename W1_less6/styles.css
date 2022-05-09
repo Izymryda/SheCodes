@@ -1,0 +1,13 @@
+body {
+    font-family: system-ui;
+    background: #603000;
+    color: #9fcfff;
+}
+
+a:link {
+    color: #ff9966;
+}
+
+a:visited {
+    color: #00ffff;
+}
