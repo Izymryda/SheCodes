@@ -67,16 +67,22 @@
       <button>Apply Now</button>
     </section>
     <script>
+      function updateHeading(newHeading) {
+        let h1 = document.querySelector("h1");
+        h1.innerHTML = newHeading;
+      }
+
+      function canAply() {
+        let age = prompt("How old are you?");
+        return age >= 18;
+      }
+
       function personalInfo() {
         let name = prompt("What is your name?");
-        let age = prompt("How old are you?");
-
-        let h1 = document.querySelector("h1");
-
-        if (age >= 18) {
-          h1.innerHTML = "Hi, " + name + "! Welcome to SheCodes!";
+        if (canAply()) {
+          updateHeading("Hi, " + name + "! Welcome to SheCodes!");
         } else {
-          h1.innerHTML = "Sorry, " + name + "! You cannot join SheCodes!";
+          updateHeading("Sorry, " + name + "! You cannot join SheCodes!");
         }
       }
 
