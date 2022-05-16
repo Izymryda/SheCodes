@@ -69,6 +69,8 @@
     <script>
       function canSpeakPortuguese() {
         let country = prompt("What country are you from");
+        country = country.toLowerCase().trim();
+        country = country.replace("brasil", "brazil");
         if (
           country.toLowerCase() === "brazil" ||
           country.toLowerCase() === "portugal"
