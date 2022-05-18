@@ -1,0 +1,149 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Drumstick</title>
+    <style>
+      body {
+        background-color: #fff8ed;
+        font-family: "Cerebri Sans", Helvetica, Arial, sans-serif;
+      }
+      h1 {
+        border: 1px solid #b19182;
+        border-radius: 8px;
+        color: #c5806a;
+        padding: 20px;
+        font-weight: bold;
+        text-align: center;
+      }
+      h2 {
+        color: #f0a790;
+        text-align: center;
+      }
+      img {
+        display: block;
+        margin: 0 auto;
+        width: 80%;
+        border-radius: 8px;
+      }
+      p {
+        text-align: justify;
+        color: #180d0e;
+        line-height: 1.5;
+        font-size: 20px;
+      }
+      small {
+        text-align: left;
+      }
+      a {
+        color: #180d0e;
+      }
+      button {
+        cursor: pointer;
+        display: block;
+        margin: 20px auto;
+      }
+      button {
+        border: none;
+        border-radius: 4px;
+        background-color: #180d0e;
+        color: #ebdbd3;
+        font-size: 40px;
+        padding: 10px 20px;
+        box-shadow: 0 1px 20px rgb(0 0 0 / 75%);
+        text-transform: uppercase;
+        transition: opacity 150ms ease;
+      }
+      button:hover {
+        opacity: 0.9;
+      }
+      .container {
+        width: 50%;
+        margin: 0 auto;
+        border-radius: 12px;
+        background: linear-gradient(
+          180deg,
+          #231314 5%,
+          #3b2023 15%,
+          #482523 25%,
+          #562b27 35%,
+          #924742 45%,
+          #9e5149 55%,
+          #c5806a 70%,
+          #ebdbd3 95%
+        );
+        padding: 30px 30px 4px 30px;
+      }
+      .footer {
+        text-align: center;
+        font-size: 12px;
+      }
+    </style>
+  </head>
+  <body>
+    <div class="container">
+      <h1>I love Drumstick</h1>
+      <h2>Especially Vic Firth Drumstick</h2>
+      <hr />
+      <img
+        src="https://s3.amazonaws.com/shecodesio-production/uploads/files/000/034/622/original/Drum_kit.jpg?1652863923"
+        alt=""
+      />
+      <hr />
+      <p>
+        &nbsp; &nbsp; &nbsp; A <b>drumstick</b> is a type of
+        <i>percussion mallet</i>
+        used particularly for playing snare drum, drum kit, and some other
+        percussion instruments, and particularly for playing unpitched
+        percussion.
+      </p>
+      <small
+        ><a href="https://en.wikipedia.org/wiki/Drum_stick"
+          >Read more on Wikipedia about drumstick</a
+        ></small
+      >
+      <p>
+        &nbsp; &nbsp; &nbsp; The main advantage of <b>Vic Firth</b> drum sticks
+        is the <i>guarantee</i> that each pair of sticks will be perfectly even,
+        calibrated in weight and the same in terms of the frequency spectrum of
+        the sound of the stick itself.
+      </p>
+      <small
+        ><a href="https://en.wikipedia.org/wiki/Vic_Firth"
+          >Read more on Wikipedia about Vic Firth</a
+        ></small
+      >
+      <button>Try Vic Firth Drumstick</button>
+      <p class="footer">
+        This page was create by
+
+        <a
+          href="https://www.linkedin.com/in/tetiana-slotvinska/"
+          target="_blank"
+        >
+          Izymryda
+        </a>
+      </p>
+    </div>
+    <script>
+      function tryDrumStick() {
+        let name = prompt("What is your name?");
+        if (name != null) {
+          if (name !== "") {
+            alert(
+              "Thanks, " +
+                name +
+                ", we will be in touch. Meanwhile, have a lot of Drumstick!"
+            );
+          } else {
+            alert("No name, no Drumstick for you!");
+          }
+        }
+      }
+      let buyButton = document.querySelector("button");
+      buyButton.addEventListener("click", tryDrumStick);
+    </script>
+  </body>
+</html>
