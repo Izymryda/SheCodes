@@ -42,6 +42,7 @@ function suarchCity(event) {
   if (city.value !== "") {
     let url = `https://api.openweathermap.org/data/2.5/weather?q=${city.value}&appid=${apiKey}&units=metric`;
     axios.get(url).then(showTemp);
+    city.value = "";
   }
 }
 function londonClick() {
@@ -72,7 +73,7 @@ function showPositionWeather(position) {
   axios.get(url).then(showTemp);
 }
 function showTemp(request) {
-  console.log(request);
+  //console.log(request);
   currentCity.innerHTML = request.data.name;
   currentTemp.innerHTML = Math.round(request.data.main.temp);
   currentSky.innerHTML = request.data.weather[0].main;
