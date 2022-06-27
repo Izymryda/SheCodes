@@ -7,6 +7,7 @@ body {
 
 #app-img {
   margin: 50px 50px;
+  margin-bottom: 40px;
   border-radius: 12px;
   background: url(../img/fon.jpg);
   background-size: 100% 100%;
@@ -127,4 +128,7 @@ form {
 .card-text {
   font-size: calc(8px + 0.7vw);
   font-weight: 900;
+}
+footer {
+  text-align: center;
 }
