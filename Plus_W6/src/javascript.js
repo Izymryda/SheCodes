@@ -1,5 +1,6 @@
 import "./styles.css";
-
+alert("H1");
+/*
 //#region functions
 function startPage() {
   celsiusLink.classList.add("bold");
@@ -116,3 +117,4 @@ lisbonLink.addEventListener("click", lisbonClick);
 dubaiLink.addEventListener("click", dubaiClick);
 parisLink.addEventListener("click", parisClick);
 currentForm.addEventListener("click", currentClick);
+*/
