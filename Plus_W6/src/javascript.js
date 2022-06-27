@@ -72,8 +72,12 @@ function showPositionWeather(position) {
   axios.get(url).then(showTemp);
 }
 function showTemp(request) {
+  console.log(request);
   currentCity.innerHTML = request.data.name;
   currentTemp.innerHTML = Math.round(request.data.main.temp);
+  currentSky.innerHTML = request.data.weather[0].main;
+  humidValue.innerHTML = request.data.main.humidity;
+  windValue.innerHTML = Math.round(request.data.wind.speed * 3.6);
 }
 //#endregion
 //#region lets
@@ -105,6 +109,9 @@ let dubaiLink = document.querySelector("#dubai");
 let parisLink = document.querySelector("#paris");
 let currentForm = document.querySelector("#search-current");
 let currentTemp = document.querySelector("#current-temperature");
+let currentSky = document.querySelector("#current-sky");
+let humidValue = document.querySelector("#humid-value");
+let windValue = document.querySelector("#wind-value");
 //#endregion
 startPage();
 searchForm.addEventListener("submit", suarchCity);

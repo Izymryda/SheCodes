@@ -94,9 +94,9 @@ form {
 #current-day,
 #current-time,
 .current-precip,
-.precip-value,
+.humid,
 .current-wind,
-.wind-value {
+.wind {
   display: inline;
 }
 .current-value {
