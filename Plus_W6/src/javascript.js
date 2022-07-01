@@ -73,12 +73,16 @@ function showPositionWeather(position) {
   axios.get(url).then(showTemp);
 }
 function showTemp(request) {
-  //console.log(request);
+  console.log(request);
   currentCity.innerHTML = request.data.name;
   currentTemp.innerHTML = Math.round(request.data.main.temp);
-  currentSky.innerHTML = request.data.weather[0].main;
+  currentSky.innerHTML = request.data.weather[0].description;
   humidValue.innerHTML = request.data.main.humidity;
   windValue.innerHTML = Math.round(request.data.wind.speed * 3.6);
+  icon.setAttribute(
+    "src",
+    `http://openweathermap.org/img/wn/${request.data.weather[0].icon}@2x.png`
+  );
 }
 //#endregion
 //#region lets
@@ -113,6 +117,7 @@ let currentTemp = document.querySelector("#current-temperature");
 let currentSky = document.querySelector("#current-sky");
 let humidValue = document.querySelector("#humid-value");
 let windValue = document.querySelector("#wind-value");
+let icon = document.querySelector("#icon");
 //#endregion
 startPage();
 searchForm.addEventListener("submit", suarchCity);

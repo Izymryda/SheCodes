@@ -73,7 +73,7 @@ form {
   width: 90px;
   padding: 3px;
   border-radius: 50%;
-  background-color: #fff;
+  background-color: #add1dc;
   margin: 1px 10px;
 }
 .current-city-weather h2 {
@@ -102,6 +102,9 @@ form {
 .current-value {
   margin: 5px 15px;
   padding: 15px 10px;
+}
+#current-sky {
+  text-transform: capitalize;
 }
 .float-end {
   margin: 0px 5px;
