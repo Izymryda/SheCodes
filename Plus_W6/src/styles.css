@@ -7,7 +7,7 @@ body {
 
 #app-img {
   margin: 50px 50px;
-  margin-bottom: 40px;
+  margin-bottom: 35px;
   border-radius: 12px;
   background: url(../img/fon.jpg);
   background-size: 100% 100%;
@@ -73,7 +73,7 @@ form {
   width: 90px;
   padding: 3px;
   border-radius: 50%;
-  background-color: #add1dc;
+  background-color: #add1dcd5;
   margin: 1px 10px;
 }
 .current-city-weather h2 {
@@ -147,7 +147,11 @@ form {
   font-weight: 900;
   margin: 0px;
 }
-
+.card-img-top {
+  background-color: #add1dcd5;
+  border-radius: 50%;
+  margin-bottom: 5px;
+}
 .day {
   margin: 0px;
   padding: 0px;

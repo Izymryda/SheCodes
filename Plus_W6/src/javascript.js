@@ -3,7 +3,7 @@
 //#region functions
 function startPage() {
   celsiusLink.classList.add("bold");
-  currentDayLb.innerHTML = `${dayOfWeek[day - 1]}`;
+  currentDayLb.innerHTML = `${dayOfWeek[day]}`;
   if (minuts < 10) {
     currentTimeLb.innerHTML = `${hours}:0${minuts}`;
   } else {
@@ -71,10 +71,9 @@ function currentClick() {
 function showPositionWeather(position) {
   let url = `https://api.openweathermap.org/data/2.5/weather?lat=${position.coords.latitude}&lon=${position.coords.longitude}&appid=${apiKey}&units=metric`;
   axios.get(url).then(showTemp);
-  let url_2 = `https://api.openweathermap.org/data/2.5/onecall?lat=${position.coords.latitude}&lon=${position.coords.longitude}&appid=${apiKey}`;
 }
 function showTemp(request) {
-  //console.log(request);
+  console.log(request);
   currentCity.innerHTML = request.data.name;
   currentTemp.innerHTML = Math.round(request.data.main.temp);
   currentSky.innerHTML = request.data.weather[0].description;
@@ -84,9 +83,30 @@ function showTemp(request) {
     "src",
     `http://openweathermap.org/img/wn/${request.data.weather[0].icon}@2x.png`
   );
+  let url_2 = `https://api.openweathermap.org/data/2.5/onecall?lat=${request.data.coord.lat}&lon=${request.data.coord.lon}&appid=${apiKey}&exclude=current,hourly&units=metric`;
+  axios.get(url_2).then(showForecast);
 }
 function showForecast(request) {
-  console.log(request);
+  for (let key in cardTitle) {
+    cardTitle[key].innerHTML = formatDay(request.data.daily[key].dt);
+  }
+  for (let key in cardImg) {
+    cardImg[key].setAttribute(
+      "src",
+      `http://openweathermap.org/img/wn/${request.data.daily[key].weather[0].icon}@2x.png`
+    );
+  }
+  for (let key in dayTemp) {
+    dayTemp[key].innerHTML = Math.round(request.data.daily[key].temp.day);
+  }
+  for (let key in nightTemp) {
+    nightTemp[key].innerHTML = Math.round(request.data.daily[key].temp.night);
+  }
+}
+function formatDay(timeinseconds) {
+  let date = new Date(timeinseconds * 1000);
+  let day = dayOfWeek[date.getDay()];
+  return day;
 }
 //#endregion
 //#region lets
@@ -101,13 +121,13 @@ let day = now.getDay();
 let hours = now.getHours();
 let minuts = now.getMinutes();
 let dayOfWeek = [
+  "Sunday",
   "Monday",
   "Tuesday",
   "Wednesday",
   "Thursday",
   "Friday",
   "Saturday",
-  "Sunday",
 ];
 let searchForm = document.querySelector("#search-city-form");
 let currentCity = document.querySelector("#current-city-name");
@@ -122,7 +142,34 @@ let currentSky = document.querySelector("#current-sky");
 let humidValue = document.querySelector("#humid-value");
 let windValue = document.querySelector("#wind-value");
 let icon = document.querySelector("#icon");
-let firstTitle = document.querySelector("#first-title");
+let cardTitle = [
+  document.querySelector("#first-title"),
+  document.querySelector("#second-title"),
+  document.querySelector("#third-title"),
+  document.querySelector("#fourth-title"),
+  document.querySelector("#fifth-title"),
+];
+let cardImg = [
+  document.querySelector("#first-img"),
+  document.querySelector("#second-img"),
+  document.querySelector("#third-img"),
+  document.querySelector("#fourth-img"),
+  document.querySelector("#fifth-img"),
+];
+let dayTemp = [
+  document.querySelector("#day-temt-first"),
+  document.querySelector("#day-temt-second"),
+  document.querySelector("#day-temt-third"),
+  document.querySelector("#day-temt-fourth"),
+  document.querySelector("#day-temt-fifth"),
+];
+let nightTemp = [
+  document.querySelector("#night-temp-first"),
+  document.querySelector("#night-temp-second"),
+  document.querySelector("#night-temp-third"),
+  document.querySelector("#night-temp-fourth"),
+  document.querySelector("#night-temp-fifth"),
+];
 //#endregion
 startPage();
 searchForm.addEventListener("submit", suarchCity);
