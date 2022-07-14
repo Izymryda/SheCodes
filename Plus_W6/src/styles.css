@@ -110,17 +110,31 @@ form {
   margin: 0px 5px;
 }
 .col-1 {
+  flex: 0 0 auto;
   width: 12%;
 }
 .col-2 {
+  flex: 0 0 auto;
   width: 20%;
 }
+.col-4 {
+  flex: 0 0 auto;
+  width: 40%;
+}
 .col-10 {
+  flex: 0 0 auto;
   width: 70%;
+}
+.col-101 {
+  flex: 0 0 auto;
+  width: 10%;
+  padding: 0px;
+  margin: 0px;
 }
 .card {
   text-align: center;
 }
+
 .card-title {
   text-align: center;
   margin: 0;
@@ -131,6 +145,22 @@ form {
 .card-text {
   font-size: calc(8px + 0.7vw);
   font-weight: 900;
+  margin: 0px;
+}
+
+.day {
+  margin: 0px;
+  padding: 0px;
+  border: 1px solid #292d31;
+  border-radius: 5px 0px 0px 5px;
+}
+.night {
+  background-color: #292d31;
+  color: #fff;
+  border: 1px solid #292d31;
+  border-radius: 0px 5px 5px 0px;
+  margin: 0px;
+  padding: 0px;
 }
 footer {
   text-align: center;

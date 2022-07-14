@@ -71,9 +71,10 @@ function currentClick() {
 function showPositionWeather(position) {
   let url = `https://api.openweathermap.org/data/2.5/weather?lat=${position.coords.latitude}&lon=${position.coords.longitude}&appid=${apiKey}&units=metric`;
   axios.get(url).then(showTemp);
+  let url_2 = `https://api.openweathermap.org/data/2.5/onecall?lat=${position.coords.latitude}&lon=${position.coords.longitude}&appid=${apiKey}`;
 }
 function showTemp(request) {
-  console.log(request);
+  //console.log(request);
   currentCity.innerHTML = request.data.name;
   currentTemp.innerHTML = Math.round(request.data.main.temp);
   currentSky.innerHTML = request.data.weather[0].description;
@@ -83,6 +84,9 @@ function showTemp(request) {
     "src",
     `http://openweathermap.org/img/wn/${request.data.weather[0].icon}@2x.png`
   );
+}
+function showForecast(request) {
+  console.log(request);
 }
 //#endregion
 //#region lets
@@ -118,6 +122,7 @@ let currentSky = document.querySelector("#current-sky");
 let humidValue = document.querySelector("#humid-value");
 let windValue = document.querySelector("#wind-value");
 let icon = document.querySelector("#icon");
+let firstTitle = document.querySelector("#first-title");
 //#endregion
 startPage();
 searchForm.addEventListener("submit", suarchCity);
