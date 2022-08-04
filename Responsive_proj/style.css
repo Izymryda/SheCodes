@@ -1,12 +1,16 @@
 :root {
-  --primary-color: #3ca2b4;
+  --primary-color: #79a98c;
   --secondary-color: #f5f2fe;
+  --link-color: #87d09d;
   --box-shadow: 0 5px 10px rgba(0, 0, 0, 0.3);
 }
 
 body {
   margin: 30px auto;
   overflow-x: hidden;
+  background-image: url(./img/backgroun-for-resume1.png);
+  background-size: 100% auto;
+  color: #f8f9fa;
 }
 h1,
 h2,
@@ -22,7 +26,7 @@ h2 {
 }
 h3 {
   font-size: 24px;
-  opacity: 0.7;
+  opacity: 0.9;
 }
 .hi-content {
   margin: 0 auto;
@@ -57,8 +61,9 @@ p {
 }
 
 .about-link {
-  color: var(--primary-color);
-  border: 1px solid var(--primary-color);
+  color: var(--secondary-color);
+  border: 1px solid var(--secondary-color);
+  box-shadow: var(--box-shadow);
 }
 
 .homepage-link {
@@ -80,7 +85,7 @@ p {
 .email-link {
   display: flex;
   justify-content: center;
-  color: var(--primary-color);
+  color: var(--link-color);
   font-size: 28px;
   text-decoration: none;
 }
@@ -100,6 +105,9 @@ img {
   box-shadow: var(--box-shadow);
   color: white;
   justify-content: center;
+}
+.text-shadow {
+  text-shadow: 2px 2px 3px #1f2b36;
 }
 @media (max-width: 350px) {
   h1 {
