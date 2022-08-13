@@ -86,6 +86,12 @@ p {
   transition: color 0.15s ease-in-out, background-color 0.15s ease-in-out,
     border-color 0.15s ease-in-out;
 }
+.about-link:hover,
+.about-link:focus {
+  background: var(--primary-color);
+  color: var(--secondary-color);
+  border-color: var(--primary-color);
+}
 .homepage-link {
   color: var(--primary-color);
   text-align: center;
