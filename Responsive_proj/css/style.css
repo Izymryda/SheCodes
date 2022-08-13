@@ -1,6 +1,8 @@
 :root {
-  --primary-color: #79a98c;
-  --secondary-color: #f5f2fe;
+  --primary-color: #1e5128;
+  --secondary-color: #d8e9a8;
+  --my-dark-color: #191a19;
+  --my-green-color: #4e9f3d;
   --link-color: #87d09d;
   --box-shadow: 0 5px 10px rgba(0, 0, 0, 0.3);
 }
@@ -8,16 +10,15 @@
 body {
   margin: 30px auto;
   overflow-x: hidden;
-  background-image: url(./img/backgroun-for-resume1.png);
+  background-image: url(../img/backgroun-for-resume1.png);
   background-size: 100% auto;
-  color: #f8f9fa;
+  color: var(--secondary-color);
 }
 h1,
 h2,
 h3 {
   margin: 0;
 }
-
 h1 {
   font-size: 72px;
 }
@@ -28,12 +29,24 @@ h3 {
   font-size: 24px;
   opacity: 0.9;
 }
+.nav-bg {
+  background-color: var(--primary-color);
+}
+.nav-link {
+  color: var(--secondary-color);
+}
+.nav-link:hover,
+.nav-link:focus {
+  color: var(--my-green-color);
+}
+.active-link {
+  color: var(--link-color);
+}
 .hi-content {
   margin: 0 auto;
   max-width: 800px;
   margin-bottom: 30px;
 }
-
 p {
   padding: 20px 0px;
   border-radius: 4px;
@@ -45,7 +58,6 @@ p {
   margin-top: 40px;
   justify-content: center;
 }
-
 .navigation-links a {
   margin: 20px;
   border-radius: 4px;
@@ -53,35 +65,40 @@ p {
   text-decoration: none;
   text-transform: capitalize;
 }
-
 .contact-link {
   background: var(--primary-color);
   box-shadow: var(--box-shadow);
   color: var(--secondary-color);
+  border: 1px solid var(--primary-color);
+  transition: color 0.15s ease-in-out, background-color 0.15s ease-in-out,
+    border-color 0.15s ease-in-out;
 }
-
+.contact-link:hover,
+.contact-link:focus {
+  background: none;
+  color: var(--secondary-color);
+  border-color: var(--secondary-color);
+}
 .about-link {
   color: var(--secondary-color);
   border: 1px solid var(--secondary-color);
   box-shadow: var(--box-shadow);
+  transition: color 0.15s ease-in-out, background-color 0.15s ease-in-out,
+    border-color 0.15s ease-in-out;
 }
-
 .homepage-link {
   color: var(--primary-color);
   text-align: center;
   display: block;
 }
-
 .about-paragraphs {
   display: flex;
   justify-content: center;
   margin: 30px 0;
 }
-
 .about-paragraphs p {
   margin: 10px;
 }
-
 .email-link {
   display: flex;
   justify-content: center;
@@ -89,7 +106,6 @@ p {
   font-size: 28px;
   text-decoration: none;
 }
-
 .email-link:hover {
   text-decoration: underline;
 }
@@ -103,8 +119,10 @@ img {
   text-transform: capitalize;
   background: var(--primary-color);
   box-shadow: var(--box-shadow);
-  color: white;
+  color: var(--secondary-color);
   justify-content: center;
+  transition: color 0.15s ease-in-out, background-color 0.15s ease-in-out,
+    border-color 0.15s ease-in-out;
 }
 .text-shadow {
   text-shadow: 2px 2px 3px #1f2b36;
@@ -115,5 +133,10 @@ img {
   }
   .email-link {
     font-size: 20px;
+  }
+}
+@media (max-width: 855px) {
+  .nav-theme a {
+    font-size: 14px;
   }
 }
