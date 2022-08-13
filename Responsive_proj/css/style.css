@@ -141,8 +141,13 @@ img {
     font-size: 20px;
   }
 }
+@media (max-width: 826px) {
+  .nav-link {
+    font-size: 9px;
+  }
+}
 @media (max-width: 855px) {
-  .nav-theme a {
-    font-size: 14px;
+  .nav-link {
+    font-size: 16px;
   }
 }
