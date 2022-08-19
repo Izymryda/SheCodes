@@ -15,6 +15,11 @@ body {
   background-size: 100% auto;
   color: var(--secondary-color);
 }
+.wrapper {
+  display: flex;
+  flex-direction: column;
+  min-height: 100%;
+}
 h1,
 h2,
 h3 {
@@ -29,6 +34,10 @@ h2 {
 h3 {
   font-size: 24px;
   opacity: 0.9;
+}
+
+.container {
+  flex: 1 0 auto;
 }
 .nav-bg {
   background-color: var(--primary-color);
@@ -136,7 +145,7 @@ img {
 }
 .img_wrap {
   max-width: 350px;
-  max-height: 480px;
+  max-height: 400px;
 }
 .img_wrap img {
   width: 100%;
@@ -144,19 +153,37 @@ img {
   object-fit: cover;
   object-position: 0 0;
 }
-.container {
-  min-height: 100%;
-  margin-bottom: -50px;
-}
 .footer {
+  flex: 0 0 auto;
   background-color: var(--link-color);
   color: var(--primary-color);
-  margin: 0 auto;
-  min-height: 50px;
 }
 .footer p {
   display: inline;
-  padding: 0 auto;
+}
+
+* {
+  margin: 0;
+  padding: 0;
+}
+html,
+body {
+  height: 100%;
+  font-family: sans-serif;
+}
+.wrapper {
+  display: flex;
+  flex-direction: column;
+  min-height: 100%;
+}
+.content {
+  flex: 1 0 auto;
+}
+.footer {
+  flex: 0 0 auto;
+  background-color: #000;
+  color: #fff;
+  font-size: 24px;
 }
 @media (max-width: 872px) {
   .nav-link {
