@@ -24,6 +24,8 @@ button {
 ul {
   visibility: hidden;
   font-size: 16px;
+  list-style: none;
+  text-align: left;
 }
 .show-ul {
   visibility: visible;
@@ -35,4 +37,12 @@ ul {
 .container {
   margin: 0 113px;
   padding: 0 15px;
+}
+.Weather {
+  text-align: center;
+}
+.center {
+  display: block;
+  margin: 0 auto;
+  width: 230px;
 }

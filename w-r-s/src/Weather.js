@@ -36,21 +36,26 @@ export default function Weather(props) {
   }
 
   return (
-    <div>
+    <div className="Weather">
       <form>
         <input type="search" className="search" placeholder="Enter a city.." />
         <input type="submit" value="Search" onClick={updateCity} />
       </form>
-
-      <ul>
-        <li>Temperature: {temperature}°C</li>
-        <li>Description: {description}</li>
-        <li>Humidity: {humidity}%</li>
-        <li>Wind: {wind}km/h</li>
-        <li>
-          <img src={icon_src} alt="" />
-        </li>
-      </ul>
+      <br />
+      <div class="center">
+        <ul>
+          <li>Temperature: {temperature}°C</li>
+          <li>Description: {description}</li>
+          <li>Humidity: {humidity}%</li>
+          <li>Wind: {wind}km/h</li>
+          <li>
+            <img src={icon_src} alt="" />
+          </li>
+        </ul>
+      </div>
+      <a href="https://github.com/Izymryda/SheCodes/tree/master/w-r-s">
+        GitHub
+      </a>
     </div>
   );
 }
