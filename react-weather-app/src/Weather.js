@@ -6,19 +6,18 @@ export default function Weather() {
     <div className="Weather">
       <form action="">
         <div className="row">
-          <div className="col-9">
+          <div className="col-10">
             <input
               type="search"
               placeholder="Enter a city..."
               className="form-control"
             />
           </div>
-          <div className="col-3">
+          <div className="col-2">
             <input type={"submit"} value="Search" className="btn btn-primary" />
           </div>
         </div>
       </form>
-
       <h1>Lisbon</h1>
       <ul>
         <li>Wednesday 13:00</li>
@@ -27,13 +26,15 @@ export default function Weather() {
       <div className="row">
         <div className="col-6">
           <img
+            id="current-weather-img"
             src="https://ssl.gstatic.com/onebox/weather/64/partly_cloudy.png"
             alt="Partly cloud"
           />
-          6°C
+          <span id="temperature">6 </span>
+          <span id="unit">°C</span>
         </div>
         <div className="col-6">
-          <ul className="small">
+          <ul id="small">
             <li>Precipitation: 71% </li>
             <li>Humidity: 86% </li>
             <li>Wind: 16 km/h</li>
