@@ -10,11 +10,15 @@ export default function Weather() {
             <input
               type="search"
               placeholder="Enter a city..."
-              className="form-control"
+              className="form-control w-100"
             />
           </div>
           <div className="col-2">
-            <input type={"submit"} value="Search" className="btn btn-primary" />
+            <input
+              type={"submit"}
+              value="Search"
+              className="btn btn-primary w-100"
+            />
           </div>
         </div>
       </form>

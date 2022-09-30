@@ -2,15 +2,16 @@
   border: 1px solid #c2c5c9;
   color: #e8eaed;
   border-radius: 12px;
-  font-family: Google Sans, arial, sans-serif;
+  max-width: 600px;
   padding: 20px;
-  margin-top: 15px;
+  margin: 15px auto;
 }
 
 .Weather h1 {
   color: #e8eaed;
   font-weight: 400;
   padding: 15px 5px;
+  margin-top: 15px;
 }
 
 .Weather ul {
@@ -21,8 +22,7 @@
   list-style: none;
 }
 .Weather input {
-  width: 100%;
-  margin: 0;
+  margin: 0 auto;
 }
 
 #small {
