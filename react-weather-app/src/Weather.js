@@ -1,7 +1,7 @@
 import React, { useState } from "react";
 import axios from "axios";
 import "./Weather.css";
-import FormattedDate from "./FormattedDate.js";
+import WeatherInfo from "./WeatherInfo.js";
 
 export default function Weather(prop) {
   const [weatherData, setWeatherData] = useState({ ready: false });
@@ -13,7 +13,6 @@ export default function Weather(prop) {
       wind: Math.round(response.data.wind.speed),
       city: response.data.name,
       description: response.data.weather[0].description,
-      precipitation: 75,
       humidity: response.data.main.humidity,
       iconUrl: response.data.weather[0].icon,
       date: new Date(response.data.dt * 1000),
@@ -21,10 +20,17 @@ export default function Weather(prop) {
     });
   }
 
+  function handleSubmit(event) {
+    event.preventDefault();
+    //search for a city
+  }
+
+  function handleCityChange(event) {}
+
   if (weatherData.ready) {
     return (
       <div className="Weather">
-        <form action="">
+        <form onSubmit={handleSubmit}>
           <div className="row">
             <div className="col-10">
               <input
@@ -32,6 +38,7 @@ export default function Weather(prop) {
                 placeholder="Enter a city..."
                 className="form-control w-100"
                 autoFocus="on"
+                onChange={handleCityChange}
               />
             </div>
             <div className="col-2">
@@ -43,34 +50,7 @@ export default function Weather(prop) {
             </div>
           </div>
         </form>
-        <h1>{weatherData.city}</h1>
-        <ul>
-          <li>
-            <FormattedDate date={weatherData.date} />
-          </li>
-          <li className="text-capitalize">{weatherData.description}</li>
-        </ul>
-        <div className="row mt-3">
-          <div className="col-6">
-            <div className="clearfix">
-              <img
-                id="current-weather-img"
-                src="https://openweathermap.org/img/wn/10d@2x.png"
-                alt="Partly cloud"
-                className="float-left"
-              />
-              <span id="temperature">{weatherData.temperature}</span>
-              <span id="unit">°C</span>
-            </div>
-          </div>
-          <div className="col-6">
-            <ul id="small">
-              <li>Precipitation: {weatherData.precipitation}% </li>
-              <li>Humidity: {weatherData.humidity}% </li>
-              <li>Wind: {weatherData.wind} km/h</li>
-            </ul>
-          </div>
-        </div>
+        <WeatherInfo data={weatherData} />
       </div>
     );
   } else {
