@@ -2,9 +2,8 @@ import React, { useState } from "react";
 import axios from "axios";
 import "./Weather.css";
 
-export default function Weather() {
-  const [ready, setReady] = useState(false);
-  const [weatherData, setWeatherData] = useState({});
+export default function Weather(prop) {
+  const [weatherData, setWeatherData] = useState({ ready: false });
 
   function handleResponse(response) {
     console.log(response.data);
@@ -15,11 +14,13 @@ export default function Weather() {
       description: response.data.weather[0].description,
       precipitation: 75,
       humidity: response.data.main.humidity,
+      iconUrl: response.data.weather[0].icon,
+      date: "Wednesday 13:00",
+      ready: true,
     });
-    setReady(true);
   }
 
-  if (ready) {
+  if (weatherData.ready) {
     return (
       <div className="Weather">
         <form action="">
@@ -43,15 +44,15 @@ export default function Weather() {
         </form>
         <h1>{weatherData.city}</h1>
         <ul>
-          <li>Wednesday 13:00</li>
-          <li>{weatherData.description}</li>
+          <li>{weatherData.date}</li>
+          <li className="text-capitalize">{weatherData.description}</li>
         </ul>
         <div className="row mt-3">
           <div className="col-6">
             <div className="clearfix">
               <img
                 id="current-weather-img"
-                src="https://ssl.gstatic.com/onebox/weather/64/partly_cloudy.png"
+                src="https://openweathermap.org/img/wn/10d@2x.png"
                 alt="Partly cloud"
                 className="float-left"
               />
@@ -71,8 +72,7 @@ export default function Weather() {
     );
   } else {
     const apiKey = "3604a3b2990de7c5ad72879ebff3eb17";
-    let city = "Lisbon";
-    let current = `https://api.openweathermap.org/data/2.5/weather?q=${city}&appid=${apiKey}&units=metric`;
+    let current = `https://api.openweathermap.org/data/2.5/weather?q=${prop.defaultCity}&appid=${apiKey}&units=metric`;
     axios.get(current).then(handleResponse);
     return <h1 className="Weather">Loading...</h1>;
   }
