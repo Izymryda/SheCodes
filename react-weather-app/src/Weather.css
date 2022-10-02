@@ -24,6 +24,10 @@
   margin: 0 auto;
 }
 
+.Weather a {
+  text-decoration: none;
+}
+
 #small {
   font-size: 14px;
 }
@@ -42,6 +46,7 @@
   font-weight: 400;
   height: auto;
   line-height: 64px;
+  margin-right: 6px;
 }
 
 #unit {
@@ -49,6 +54,6 @@
   font-size: 16px;
   line-height: 24px;
   margin-top: 16px;
-  padding-left: 6px;
   vertical-align: top;
+  padding: 2px;
 }
