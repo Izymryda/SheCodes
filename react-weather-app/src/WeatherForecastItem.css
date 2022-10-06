@@ -1,2 +1,29 @@
 .WeatherForecastItem {
+  margin: 10px;
+  padding: 0;
+  border: 1px solid #9aa0a6;
+  border-radius: 12px;
+  box-shadow: 0 0 5px #9aa0a6;
+  max-width: 130px;
+}
+
+.WeatherForecastItem img {
+  margin: -10px auto !important;
+  height: 75%;
+  width: 75%;
+  max-width: 64px;
+}
+
+.WeatherForecastItem span {
+  margin: 0px 3px;
+}
+
+.WeatherForecastItem-temperature-min {
+  color: #9aa0a6;
+}
+
+@media (max-width: 575px) {
+  .WeatherForecastItem {
+    margin: 10px auto;
+  }
 }

@@ -19,7 +19,7 @@ export default function WeatherTemperature(props) {
 
   if (unit === "metric") {
     return (
-      <span>
+      <div className="d-inline">
         <span id="temperature">{Math.round(props.celsius)}</span>
         <span id="unit">
           °C |{" "}
@@ -27,11 +27,11 @@ export default function WeatherTemperature(props) {
             °F
           </a>
         </span>
-      </span>
+      </div>
     );
   } else {
     return (
-      <span>
+      <div className="d-inline">
         <span id="temperature">{Math.round(farenheit())}</span>
         <span id="unit">
           <a href="/" onClick={showCelsius}>
@@ -39,7 +39,7 @@ export default function WeatherTemperature(props) {
           </a>{" "}
           | °F
         </span>
-      </span>
+      </div>
     );
   }
 }
