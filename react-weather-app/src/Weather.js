@@ -6,31 +6,36 @@ import WeatherForecast from "./WeatherForecast.js";
 
 export default function Weather(prop) {
   let [city, setCity] = useState(prop.defaultCity);
-  const [weatherData, setWeatherData] = useState({ ready: false });
+  const [weatherData, setWeatherData] = useState({
+    ready: false,
+    click: false,
+  });
 
   function handleResponse(response) {
-    console.log(response.data);
+    //console.log(response.data);
     setWeatherData({
-      temperature: response.data.main.temp,
+      temperature: response.data.temperature.current,
       wind: Math.round(response.data.wind.speed),
-      city: response.data.name,
-      description: response.data.weather[0].description,
-      humidity: response.data.main.humidity,
-      iconUrl: `https://openweathermap.org/img/wn/${response.data.weather[0].icon}@2x.png`,
-      date: new Date(response.data.dt * 1000),
+      city: response.data.city,
+      description: response.data.condition.description,
+      humidity: response.data.temperature.humidity,
+      iconUrl: response.data.condition.icon_url,
+      date: new Date(response.data.time * 1000),
+      lat: response.data.coordinates.latitude,
+      lon: response.data.coordinates.longitude,
       ready: true,
+      click: true,
     });
   }
 
   function search() {
-    const apiKey = "3604a3b2990de7c5ad72879ebff3eb17";
-    let current = `https://api.openweathermap.org/data/2.5/weather?q=${city}&appid=${apiKey}&units=metric`;
+    const apiKey = "7743fa1dfce9o52176021d90t4ddf3b3";
+    let current = `https://api.shecodes.io/weather/v1/current?query=${city}&key=${apiKey}&units=metric`;
     axios.get(current).then(handleResponse);
   }
 
   function handleSubmit(event) {
     event.preventDefault();
-    //search for a city
     search();
   }
 
