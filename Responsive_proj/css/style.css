@@ -3,11 +3,11 @@
   padding: 0;
 }
 :root {
-  --primary-color: #1e5128;
-  --secondary-color: #d8e9a8;
-  --my-dark-color: #191a19;
-  --my-green-color: #4e9f3d;
-  --link-color: #87d09d;
+  --primary-color: #004643;
+  --secondary-color: #eff0f3;
+  --my-green-color: #abd1c6;
+  --link-color: #f9bc60;
+  --highlights-color: #e16162;
   --box-shadow: 0 5px 10px rgba(0, 0, 0, 0.3);
 }
 html,
@@ -93,11 +93,11 @@ p {
 .contact-link:focus {
   background: none;
   color: var(--secondary-color);
-  border-color: var(--secondary-color);
+  border-color: var(--my-green-color);
 }
 .about-link {
   color: var(--secondary-color);
-  border: 1px solid var(--secondary-color);
+  border: 1px solid var(--my-green-color);
   box-shadow: var(--box-shadow);
   transition: color 0.15s ease-in-out, background-color 0.15s ease-in-out,
     border-color 0.15s ease-in-out;
@@ -121,14 +121,19 @@ p {
   margin: 10px;
 }
 .email-link {
+  width: fit-content;
   display: flex;
   justify-content: center;
-  color: var(--link-color);
+  margin: 10px auto 0px auto;
+  padding: 0px 10px;
+  color: var(--my-green-color);
+  background-color: var(--primary-color);
   font-size: 28px;
   text-decoration: none;
 }
 .email-link:hover {
-  text-decoration: underline;
+  text-decoration: none;
+  color: var(--link-color);
 }
 img {
   vertical-align: middle;
@@ -167,7 +172,7 @@ img {
 }
 .footer {
   flex: 0 0 auto;
-  background-color: var(--link-color);
+  background-color: var(--my-green-color);
   color: var(--primary-color);
   font-size: 28px;
 }
