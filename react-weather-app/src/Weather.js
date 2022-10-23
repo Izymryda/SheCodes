@@ -8,7 +8,9 @@ export default function Weather(prop) {
   let [city, setCity] = useState(prop.defaultCity);
   const [weatherData, setWeatherData] = useState({
     ready: false,
-    click: false,
+  });
+  const [weatherForecastData, setWeatherForecastData] = useState({
+    ready: false,
   });
 
   function handleResponse(response) {
@@ -24,7 +26,14 @@ export default function Weather(prop) {
       lat: response.data.coordinates.latitude,
       lon: response.data.coordinates.longitude,
       ready: true,
-      click: true,
+    });
+  }
+
+  function handleForecastResponse(response) {
+    //console.log(response.data);
+    setWeatherForecastData({
+      daily: response.data,
+      ready: true,
     });
   }
 
@@ -34,16 +43,23 @@ export default function Weather(prop) {
     axios.get(current).then(handleResponse);
   }
 
+  function searchForecast() {
+    const apiKey = "7743fa1dfce9o52176021d90t4ddf3b3";
+    let current = `https://api.shecodes.io/weather/v1/forecast?query=${city}&key=${apiKey}&units=metric`;
+    axios.get(current).then(handleForecastResponse);
+  }
+
   function handleSubmit(event) {
     event.preventDefault();
     search();
+    searchForecast();
   }
 
   function handleCityChange(event) {
     setCity(event.target.value);
   }
 
-  if (weatherData.ready) {
+  if (weatherData.ready && weatherForecastData.ready) {
     return (
       <div className="Weather">
         <form onSubmit={handleSubmit}>
@@ -67,11 +83,12 @@ export default function Weather(prop) {
           </div>
         </form>
         <WeatherInfo data={weatherData} />
-        <WeatherForecast data={weatherData} />
+        <WeatherForecast data={weatherForecastData} />
       </div>
     );
   } else {
     search();
+    searchForecast();
     return <h1 className="Weather">Loading...</h1>;
   }
 }
