@@ -15,7 +15,6 @@ body {
   height: 100%;
 }
 body {
-  overflow-x: hidden;
   background-image: url(../img/backgroun-for-resume1.png);
   background-size: 100% auto;
   color: var(--secondary-color);
@@ -24,6 +23,7 @@ body {
   display: flex;
   flex-direction: column;
   min-height: 100%;
+  overflow-x: hidden;
 }
 h1,
 h2,
